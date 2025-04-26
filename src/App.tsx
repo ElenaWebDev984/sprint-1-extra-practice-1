@@ -2,7 +2,7 @@ import './App.css';
 import {DataType, TaskList} from "./TaskList.tsx";
 
 export const App = ()=> {
-    const data1: DataType[] = {
+    const data1: DataType = {
         title: "What to do",
         tasks: [
             {taskId: 1, title: "HTML&CSS2", isDone: true},
@@ -56,10 +56,10 @@ export const App = ()=> {
             'Ralphie Hebert',
         ]
     }
-    const data2: DataType[] =   {
+    const data2: DataType =   {
         title: "What to learn",
         tasks: [
-            {taskId: 1, title: "HTML&CSS", isDone: true},
+            {taskId: 1, title: "HTML&CSS", isDone: false},
             {taskId: 2, title: "JS", isDone: true}
         ],
         students: [
