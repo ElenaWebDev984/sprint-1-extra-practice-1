@@ -1,17 +1,17 @@
 type TaskListPropsType = {
-    data: DataType[]
+    data: DataType
 }
 
 export type DataType = {
     title: string
-    tasks: {
-        taskId: number
-        title: string
-        isDone: boolean
-    },
-    students: {
-        student:string
-    },
+    tasks: TaskType[]
+    students: string[]
+}
+
+type TaskType = {
+    taskId: number
+    title: string
+    isDone: boolean
 }
 
 export const TaskList = (props: TaskListPropsType) => {
@@ -21,18 +21,18 @@ export const TaskList = (props: TaskListPropsType) => {
             <ul>
                 {props.data.tasks.map(el => {
                     return (
-                        <li>
+                        <li key={el.taskId}>
                             <span>{el.taskId}</span>
                             <span>{el.title}</span>
-                            <span>{el.isDone}</span>
+                            <span>{el.isDone ? "✅" : "❌"}</span>
                         </li>
                     )
                 })}
             </ul>
 
             <ul>
-                {props.data.students.map(student => {
-                    return <li>{student}</li>
+                {props.data.students.map((student, index) => {
+                    return <li key={index}>{student}</li>
                 })}
             </ul>
         </div>
